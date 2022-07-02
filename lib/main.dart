@@ -33,7 +33,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.menu),
+        backgroundColor: Colors.yellow.shade500,
+        leading: const Icon(Icons.menu),
+        title: const TextField(
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Buscar produtos, marcas e muito mais...',
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             onPressed: () {
@@ -45,17 +52,40 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ],
-        title: const TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Buscar produtos, marcas e muito mais...',
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(20.0),
+          child: Center(
+            child: Row(
+              children: const <Widget>[
+                Expanded(
+                  child: Icon(Icons.send),
+                ),
+                Expanded(
+                    flex: 4,
+                    child: Text(
+                      'Enviar para Leandro Poletti - Avenida Paulista, 69',
+                      textAlign: TextAlign.justify,
+                    ))
+              ],
+            ),
           ),
         ),
-        backgroundColor: Colors.yellow.shade700,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.center,
+            colors: <Color>[
+              Colors.yellow.shade500,
+              Colors.yellow.shade200,
+              Color(0xfff5f5f5),
+              Color(0xfff5f5f5),
+              Color(0xfff5f5f5),
+              Color(0xfff5f5f5),
+              Color(0xfff5f5f5),
+            ],
+          ),
         ),
       ),
     );
